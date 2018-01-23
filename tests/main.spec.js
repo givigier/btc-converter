@@ -20,4 +20,20 @@ describe('BTC Converter', () => {
       done();
     });
   });
+
+  it('should return the currency option when call --help', (done) => {
+    exec(`${btcConverter} --help`, (err, stdout, stderr) => {
+      if(err) throw err;
+      expect(stdout.includes('--currency')).to.be.true;
+      done();
+    });
+  });
+
+  it('should return the amount option when call --help', (done) => {
+    exec(`${btcConverter} --help`, (err, stdout, stderr) => {
+      if(err) throw err;
+      expect(stdout.includes('--amount')).to.be.true;
+      done();
+    });
+  });
 });
