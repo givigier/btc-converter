@@ -12,4 +12,12 @@ describe('BTC Converter', () => {
       done();
     });
   });
+
+  it('should return the description of the btc-converter', (done) => {
+    exec(`${btcConverter} --help`, (err, stdout, stderr) => {
+      if(err) throw err;
+      expect(stdout.includes('Convert BTC to a fiat currency')).to.be.true;
+      done();
+    });
+  });
 });
